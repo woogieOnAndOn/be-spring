@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
-			<version>3.6.0</version>
+			
 		</dependency>
 
 		<dependency>
@@ -66,4 +66,15 @@
 		</plugins>
 	</build>
 
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>jquery</artifactId>
+				<version>3.3.1-2</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
