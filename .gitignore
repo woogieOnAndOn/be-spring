@@ -33,3 +33,6 @@ build/
 .vscode/
 
 .DS_Store
+
+### 배포시 필요
+application.yml
