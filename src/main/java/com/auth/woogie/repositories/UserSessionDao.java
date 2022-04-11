@@ -27,6 +27,10 @@ public class UserSessionDao {
 	public int insertUserSession(UserSessionVO userSession) {
 		return this.sqlSession.insert("insertUserSession", userSession);
 	}
+
+	public int deleteUserSession(UserSessionVO userSession) {
+		return this.sqlSession.insert("deleteUserSession", userSession);
+	}
 	
 	
 }

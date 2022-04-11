@@ -20,7 +20,8 @@ public class UserSessionService {
 
 //	▼ 메소드 ===============================================================	
 
-	public int insertUserSession(UserSessionVO userSession) {
+	public int saveSession(UserSessionVO userSession) {
+		this.userSessionDao.deleteUserSession(userSession);
 		return this.userSessionDao.insertUserSession(userSession);
 	}
 	

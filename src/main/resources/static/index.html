@@ -28,11 +28,21 @@
   </div>
 </body>
 <script type="text/javascript">
-  $.get("/user", function(res) {
-    console.log(res);
-    $("#user").html(res.userName);
-    $(".unauthenticated").hide()
-    $(".authenticated").show()
+  $.get("/user", function(res, err) {
+    if (res) {
+      $("#user").html(res.userName);
+      $(".unauthenticated").hide();
+      $(".authenticated").show();
+
+      $.post("/user", function(res, err) {
+        window.location.href = "http://localhost:5001/main"
+      })
+    } else if (err) {
+      $("#user").html('');
+      $(".unauthenticated").show();
+      $(".authenticated").hide();
+      window.location.href = "http://localhost:5001/auth"
+    }
   });
 
   const logout = () => {

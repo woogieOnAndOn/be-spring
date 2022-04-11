@@ -24,5 +24,12 @@
 		VALUES (#{userId}, #{userName}, #{sessionId})
 	</insert>
 	
+	<delete id="deleteUserSession" parameterType="UserSessionVO">
+		DELETE 
+		FROM user_session
+		WHERE user_id = #{userId}
+		AND user_name = #{userName}
+	</delete>
+	
 	
 </mapper>

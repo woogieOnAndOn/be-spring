@@ -46,7 +46,7 @@ public class UserSessionController extends WebSecurityConfigurerAdapter {
 			jSessionId,
 			""
 		);
-		userSessionService.insertUserSession(userSession);
+		userSessionService.saveSession(userSession);
 	}
   
   @Override
