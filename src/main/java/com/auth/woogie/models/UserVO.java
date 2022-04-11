@@ -1,4 +1,4 @@
-package com.auth.woogie.user;
+package com.auth.woogie.models;
 
 public class UserVO {
   private String id;
