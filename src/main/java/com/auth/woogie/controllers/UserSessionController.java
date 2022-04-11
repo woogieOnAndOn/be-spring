@@ -5,11 +5,9 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-// import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auth.woogie.models.UserSessionVO;
@@ -41,10 +39,13 @@ public class UserSessionController extends WebSecurityConfigurerAdapter {
 	}
 
 	@PostMapping("/user")
-	public void saveSession(@RequestBody UserSessionVO userSession) {
-		System.out.println("UserController====================");
-		System.out.println(userSession);
-		System.out.println("====================");
+	public void saveSession(@AuthenticationPrincipal OAuth2User principal, @CookieValue("JSESSIONID") String jSessionId) {
+		UserSessionVO userSession = new UserSessionVO(
+			principal.getAttributes().get("id").toString(),
+			principal.getAttributes().get("login").toString(),
+			jSessionId,
+			""
+		);
 		userSessionService.insertUserSession(userSession);
 	}
   
@@ -62,9 +63,6 @@ public class UserSessionController extends WebSecurityConfigurerAdapter {
 			.logout(l -> l
 				.logoutSuccessUrl("/").permitAll()
 			)
-			// .csrf(c -> c
-			// 	.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-			// )
 			.csrf().disable()
 			.oauth2Login();
 			

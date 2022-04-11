@@ -12,6 +12,7 @@ public class UserSessionVO {
     this.userId = userId;
     this.userName = userName;
     this.sessionId = sessionId;
+    this.avatarUrl = avatarUrl;
   }
 
   public String getUserId() {

@@ -20,18 +20,7 @@ public class UserSessionService {
 
 //	▼ 메소드 ===============================================================	
 
-	// public UserSessionVO selectUserSessionById(String memId) {
-	// 	return this.memberDao.selectUserSessionById(memId);
-	// }
-	
-	// public List<UserSessionVO> getAllUserSessions(){
-	// 	return this.memberDao.getAllUserSessions();
-	// }
-	
 	public int insertUserSession(UserSessionVO userSession) {
-		System.out.println("UserSessionService====================");
-		System.out.println(userSession);
-		System.out.println("====================");
 		return this.userSessionDao.insertUserSession(userSession);
 	}
 	

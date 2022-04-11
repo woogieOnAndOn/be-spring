@@ -24,18 +24,7 @@ public class UserSessionDao {
 	
 //	▼ 메소드 ===============================================================
 
-	// public UserSessionVO selectUserSessionVOById(String memId) {
-	// 	return this.sqlSession.selectOne("selectUserSessionVOById", memId);
-	// }
-	
-	// public List<UserSessionVO> getAllUserSessionVOs(){
-	// 	return this.sqlSession.selectList("getAllUserSessionVOs");
-	// }
-	
 	public int insertUserSession(UserSessionVO userSession) {
-		System.out.println("UserSessionDao====================");
-		System.out.println(userSession);
-		System.out.println("====================");
 		return this.sqlSession.insert("insertUserSession", userSession);
 	}
 	
