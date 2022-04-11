@@ -29,7 +29,8 @@
 </body>
 <script type="text/javascript">
   $.get("/user", function(res) {
-    $("#user").html(res.name);
+    console.log(res);
+    $("#user").html(res.userName);
     $(".unauthenticated").hide()
     $(".authenticated").show()
   });

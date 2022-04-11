@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auth.woogie.repositories">
+
+	<resultMap type="UserSessionVO" id="memberResultMap">
+		<result property="user_id" column="userId"  />
+		<result property="user_name" column="userName" />
+		<result property="session_id" column="sessionId" />
+	</resultMap>
+
+	<!-- <select id="selectUserSessionById" parameterType="String" resultType="UserSession">
+		SELECT * 
+		FROM member 
+		WHERE mem_id = #{memId}
+	</select>
+	
+	<select id="getAllUserSessions" resultType="UserSession">
+		SELECT * 
+		FROM member 
+	</select> -->
+	
+	<insert id="insertUserSession" parameterType="UserSessionVO">
+		INSERT INTO user_session
+		VALUES (#{userId}, #{userName}, #{sessionId})
+	</insert>
+	
+	
+</mapper>
