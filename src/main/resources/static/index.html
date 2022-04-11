@@ -28,8 +28,8 @@
   </div>
 </body>
 <script type="text/javascript">
-  $.get("/user", function(data) {
-    $("#user").html(data.name);
+  $.get("/user", function(res) {
+    $("#user").html(res.name);
     $(".unauthenticated").hide()
     $(".authenticated").show()
   });
