@@ -1,31 +1,31 @@
 package com.auth.woogie.models;
 
 public class UserVO {
-  private String id;
-  private String name;
+  private String userId;
+  private String userName;
   private String avatarUrl;
 
-  public UserVO(String id, String name, String avatarUrl) {
+  public UserVO(String userId, String userName, String avatarUrl) {
     super();
-    this.id = id;
-    this.name = name;
+    this.userId = userId;
+    this.userName = userName;
     this.avatarUrl = avatarUrl;
   }
 
-  public String getId() {
-    return id;
+  public String getUserId() {
+    return userId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
-  public String getName() {
-    return name;
+  public String getUserName() {
+    return userName;
   }  
 
-  public void setName(String name) {
-    this.name = name;
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 
   public String getAvatarUrl() {
@@ -38,7 +38,7 @@ public class UserVO {
 
   @Override
   public String toString() {
-    return "UserVO [id=" + id + ",name=" + name + ",avatarUrl=" + avatarUrl + "]";
+    return "UserVO [userId=" + userId + ",userName=" + userName + ",avatarUrl=" + avatarUrl + "]";
   }
 
 }
