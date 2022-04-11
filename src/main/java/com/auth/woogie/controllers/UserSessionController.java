@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auth.woogie.models.UserSessionVO;
-import com.auth.woogie.models.UserVO;
 import com.auth.woogie.services.UserSessionService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 @RestController
-public class UserController extends WebSecurityConfigurerAdapter {
+public class UserSessionController extends WebSecurityConfigurerAdapter {
 
 //	▼ 변수 ===============================================================
 
@@ -31,10 +30,11 @@ public class UserController extends WebSecurityConfigurerAdapter {
 //	▼ 메소드 ===============================================================	
 
   @GetMapping("/user")
-	public UserVO user(@AuthenticationPrincipal OAuth2User principal) {
-		UserVO loginUser = new UserVO(
+	public UserSessionVO user(@AuthenticationPrincipal OAuth2User principal) {
+		UserSessionVO loginUser = new UserSessionVO(
 			principal.getAttributes().get("id").toString(),
 			principal.getAttributes().get("login").toString(),
+			"",
 			principal.getAttributes().get("avatar_url").toString()
 		);
 		return loginUser;

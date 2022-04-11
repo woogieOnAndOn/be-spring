@@ -5,8 +5,9 @@ public class UserSessionVO {
   private String userId;
   private String userName;
   private String sessionId;
+  private String avatarUrl;
   
-  public UserSessionVO(String userId, String userName, String sessionId) {
+  public UserSessionVO(String userId, String userName, String sessionId, String avatarUrl) {
     super();
     this.userId = userId;
     this.userName = userName;
@@ -36,10 +37,18 @@ public class UserSessionVO {
   public void setSessionId(String sessionId) {
     this.sessionId = sessionId;
   }
+
+  public String getAvatarUrl() {
+    return avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
   
   @Override
   public String toString() {
-    return "UserSessionVO [userId=" + userId + ",userName= " + userName + ",sessionId= " + sessionId + "]";
+    return "UserSessionVO [userId=" + userId + ",userName= " + userName + ",sessionId= " + sessionId + ", avatarUrl= " + avatarUrl + "]";
   }
 
 }
